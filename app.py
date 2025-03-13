@@ -11,26 +11,26 @@ def load_model(model_file):
 
 
 def main():
-    st.subheader("Loan Approval Application")    
-    person_age = st.number_input("Loan applicant age")
+    st.markdown("<h2 style='text-align: center;'>Loan Approval Model</h2>", unsafe_allow_html=True)    
+    person_age = st.number_input("Loan applicant's age")
     if person_age < 0:
          st.warning("age must be equal to or above 0")
-    person_income = st.number_input("Loan applicant income")
+    person_income = st.number_input("Loan applicant's income")
     if person_income < 0:
         st.warning("income must be equal to or above 0")
-    person_emp_exp = st.number_input("Loan applicant employement experience")
+    person_emp_exp = st.number_input("Loan applicant's employment experience")
     if person_emp_exp < 0:
         st.warning("employement experience must be equal to or above 0")
-    loan_amount = st.number_input("loan amount requested")
+    loan_amount = st.number_input("Loan Amount Requested")
     if loan_amount < 1:
         st.warning("loan amount must be equal to or above 1")
-    loan_int_rate = st.number_input("Loan interest rate")
+    loan_int_rate = st.number_input("Loan Interest Rate")
     if loan_int_rate < 0:
         st.warning("loan interest rate must be equal to or above 0")
-    cb_cred_hist_length = st.number_input("Length of credit history in years")
+    cb_cred_hist_length = st.number_input("Credit History Length (Years)")
     if cb_cred_hist_length < 0:
         st.warning("Length of credit history must be equal to or above 0")
-    credit_score = st.number_input("Loan applicant credit score")
+    credit_score = st.number_input("Loan Applicant's Credit Score")
     if credit_score < 0:
         st.warning("credit score must be equal to or above 0")
     
@@ -42,11 +42,11 @@ def main():
     prev_loan_def_options = ['Yes', 'No']
 
     # Input dari user
-    person_gender = st.radio("Loan applicant gender", gender_options)
-    person_education = st.radio("Loan applicant education", education_options)
-    person_home_ownership = st.radio("Loan applicant home ownership", home_ownership_options)
-    loan_intent = st.radio("Loan intention", loan_intent_options)
-    prev_loan_def_on_file = st.radio("Indicator of previous loan defaults", prev_loan_def_options)
+    person_gender = st.radio("Loan Applicant's gender", gender_options)
+    person_education = st.radio("Loan Applicant's Education Level", education_options)
+    person_home_ownership = st.radio("Loan Applicant's Home Ownership", home_ownership_options)
+    loan_intent = st.radio("Loan Purpose", loan_intent_options)
+    prev_loan_def_on_file = st.radio("Previous Loan Defaults", prev_loan_def_options)
 
     # Mengonversi pilihan user menjadi indeks
     person_gender_idx = gender_options.index(person_gender)
